@@ -1,0 +1,246 @@
+
+.cc-cliente {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 5rem 1rem 3rem;
+}
+
+.ccc-titulo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 1.25rem;
+    border-bottom: 3px solid #2d6a4f;
+    padding-bottom: 0.5rem;
+}
+
+/* Loading */
+.ccc-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 4rem 0;
+    color: #666;
+}
+
+.ccc-spinner {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e0e0e0;
+    border-top-color: #2d6a4f;
+    border-radius: 50%;
+    animation: ccc-spin 0.8s linear infinite;
+}
+
+@keyframes ccc-spin { to { transform: rotate(360deg); } }
+
+/* Resumen */
+.ccc-resumen {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.ccc-resumen-card {
+    flex: 1;
+    min-width: 150px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 1px solid #e8e8e8;
+}
+
+.ccc-resumen-card--deuda { border-left: 4px solid #e74c3c; }
+.ccc-resumen-card--ok    { border-left: 4px solid #2d6a4f; }
+
+.ccc-resumen-num   { font-size: 1.5rem; font-weight: 800; color: #1a1a2e; line-height: 1; }
+.ccc-resumen-label { font-size: 0.76rem; color: #888; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* Tabs */
+.ccc-filtros {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.ccc-filtro-btn {
+    padding: 0.5rem 1.25rem;
+    border: 2px solid #e0ede6;
+    border-radius: 8px;
+    background: #fff;
+    color: #555;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.ccc-filtro-btn:hover { border-color: #2d6a4f; color: #2d6a4f; }
+.ccc-filtro-btn--active { background: #2d6a4f; border-color: #2d6a4f; color: #fff; }
+
+/* Vacío */
+.ccc-vacio {
+    background: #f8f8f8;
+    border: 2px dashed #ccc;
+    border-radius: 12px;
+    padding: 3rem;
+    text-align: center;
+    color: #888;
+}
+
+/* ── Lista directa (sin abecedario) ── */
+.ccc-lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.ccc-item {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 12px;
+    padding: 0.9rem 1.25rem;
+    cursor: pointer;
+    transition: box-shadow 0.15s, background 0.15s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.ccc-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+.ccc-item--seleccionado { background: #e8f4ec; border-color: #a8d5b5; }
+
+.ccc-item-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.ccc-item-nombre { font-weight: 700; font-size: 0.95rem; color: #1a1a2e; }
+
+.ccc-item-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.cc-badge--pendiente { background: #fff3cd; color: #856404; }
+.cc-badge--pagado    { background: #d4edda; color: #155724; }
+
+.ccc-item-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    font-size: 0.78rem;
+    color: #666;
+}
+
+.ccc-item-nro   { font-family: monospace; color: #2d6a4f; font-weight: 700; }
+.ccc-item-total { font-weight: 700; color: #2d6a4f; font-size: 0.88rem; }
+
+/* Modal reutiliza clases de CuentaCorrienteAdmin.css */
+.pedido-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.pedido-modal {
+    background: #fff;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 520px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    animation: modal-in 0.22s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+@keyframes modal-in {
+    from { transform: scale(0.9); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+}
+
+.pedido-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.25rem 1.5rem;
+    background: #f4f8f6;
+    border-bottom: 1px solid #e0ede6;
+    flex-shrink: 0;
+}
+
+.pedido-modal-titulo  { margin: 0 0 4px; font-size: 1.1rem; font-weight: 700; color: #1a1a2e; }
+.pedido-modal-nro     { color: #2d6a4f; font-family: monospace; }
+.pedido-modal-cliente { margin: 0; font-size: 0.88rem; color: #555; }
+.pedido-modal-header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+
+.pedido-modal-cerrar {
+    background: #e9ecef;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pedido-modal-cerrar:hover { background: #dee2e6; }
+
+.pedido-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    border-top: 1px solid #eee;
+    flex-shrink: 0;
+}
+
+.pedido-modal-total-label  { font-size: 0.9rem; color: #555; }
+.pedido-modal-total-precio { font-size: 1.2rem; font-weight: 800; color: #2d6a4f; }
+
+.cc-modal-montos {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.cc-monto-row { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.75rem; border-radius: 8px; background: #f8f8f8; }
+.cc-monto-row--restante { background: #fff8e6; }
+.cc-monto-label { font-size: 0.88rem; color: #555; }
+.cc-monto-valor { font-size: 1.1rem; font-weight: 800; color: #1a1a2e; }
+.cc-monto-valor--restante { color: #c0392b; }
+.cc-monto-valor--cero { color: #2d6a4f !important; }
+
+.cc-pagos-historial { margin-top: 0.25rem; }
+.cc-pagos-titulo { font-size: 0.8rem; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.4rem; }
+.cc-pagos-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.cc-pago-item { display: flex; justify-content: space-between; font-size: 0.82rem; color: #555; padding: 4px 8px; background: #f4f8f6; border-radius: 6px; }
+.cc-pago-monto { font-weight: 700; color: #2d6a4f; }

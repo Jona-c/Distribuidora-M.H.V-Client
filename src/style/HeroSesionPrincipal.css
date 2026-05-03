@@ -1,0 +1,219 @@
+ button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+ .hero-section {
+            position: relative;
+            width: 100%;
+            height: calc(100vh - 75px);
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            margin-top: 100px;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(135deg, rgba(255, 140, 66, 0.15) 0%, rgba(62, 66, 71, 0.3) 100%),
+                        url('../assets/ferreteria-modif.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 60%, rgba(255, 255, 255, 0.3) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0;
+            padding: 60px 40px;
+        }
+
+        .hero-title {
+            font-size: 72px;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .hero-brand {
+            font-size: 82px;
+            font-weight: 800;
+            color: red;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-brand-title{
+            font: oblique bold 120% cursive;
+            color: #1a1a1a;
+        }
+
+        .hero-description {
+            font-size: 22px;
+            color: #5a5a5a;
+            line-height: 1.6;
+            margin-bottom: 50px;
+            max-width: 600px;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        button.btn {
+            padding: 16px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        button.btn-primary {
+            background-color: red;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 140, 66, 0.3);
+        }
+
+        button.btn-primary:hover {
+            background-color: #f06b6b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 140, 66, 0.4);
+        }
+
+        button.btn-secondary {
+            background-color: transparent;
+            color: red;
+            border: 2px solid red;
+        }
+
+        button.btn-secondary:hover {
+            background-color: #ff4242;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 140, 66, 0.3);
+        }
+
+        /* Estilos para Link que reemplaza al button */
+        a.btn {
+            padding: 16px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        a.btn-primary {
+            background-color: red;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 140, 66, 0.3);
+        }
+
+        a.btn-primary:hover {
+            background-color: #f06b6b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 140, 66, 0.4);
+        }
+
+        a.btn-secondary {
+            background-color: transparent;
+            color: red;
+            border: 2px solid red;
+        }
+
+        a.btn-secondary:hover {
+            background-color: #ff4242;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 140, 66, 0.3);
+        }
+
+        .btn-icon {
+            font-size: 20px;
+        }
+
+
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 40px 20px;
+            }
+
+            .hero-title {
+                font-size: 42px;
+            }
+
+            .hero-brand {
+                font-size: 52px;
+            }
+
+            .hero-description {
+                font-size: 18px;
+                margin-bottom: 35px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 14px 30px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-brand {
+                font-size: 40px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+        }

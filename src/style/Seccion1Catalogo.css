@@ -1,0 +1,76 @@
+        
+        .cta-section {
+            background-color: #3E4247;
+            padding-top: 120px;
+            padding-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .cta-btn {
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            text-decoration: none;
+        }
+
+        .btn-contact {
+            background-color: transparent;
+            color: white;
+            border-color: #6B7280;
+        }
+
+        .btn-contact:hover {
+            border-color: white;
+            background-color: rgb(254, 253, 253);
+            color: #0c0c0c;
+        }
+
+        .btn-quote {
+            background-color: red;
+            color: #faf7f7;
+            border: none;
+        }
+
+        .btn-quote:hover {
+            background-color: #f96f6f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .icon {
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-wrap: wrap;
+                padding: 15px 20px;
+            }
+
+            .search-section {
+                order: 3;
+                width: 100%;
+                margin: 15px 0 0 0;
+                max-width: 100%;
+            }
+
+            .cta-section {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .cta-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }

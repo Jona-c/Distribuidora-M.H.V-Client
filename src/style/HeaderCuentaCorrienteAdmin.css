@@ -1,0 +1,266 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f9fafb;
+        }
+
+        /* Header Principal */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            z-index: 1000;
+        }
+
+        .header-top {
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        
+        .logo-link {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: opacity 0.3s ease;
+            flex-shrink: 0; 
+            margin-left: 50px;
+            
+        }
+        
+        .logo-link:hover {
+            opacity: 0.85;
+        }
+
+        .logo-section{
+            display: flex;
+            align-items: center;
+            
+        }
+
+
+        .logo-image {
+            height: 80px; 
+            width: auto;
+            max-width: 350px;
+            display: block;
+            object-fit: contain;
+            border-radius: 10px;
+            
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 20px 10px 40px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: #DC2626;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            font-size: 18px;
+        }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .user-name {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            color: #374151;
+            font-weight: 500;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .user-actions {
+            position: relative;
+        }
+
+        .user-name .caret {
+            margin-left: 6px;
+            font-size: 12px;
+            color: #6b7280;
+            transition: transform 0.15s ease;
+        }
+
+        .user-name.open .caret,
+        .user-name .caret.up {
+            transform: rotate(180deg);
+        }
+
+        .user-panel {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            width: 220px;
+            padding: 8px;
+            opacity: 0;
+            transform: translateY(-6px);
+            pointer-events: none;
+            transition: opacity 0.15s ease, transform 0.15s ease;
+            z-index: 1100;
+        }
+
+        .user-panel.open {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .user-panel-btn {
+            display: block;
+            width: 100%;
+            background: transparent;
+            border: none;
+            padding: 10px 12px;
+            text-align: left;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #374151;
+            transition: background-color 0.15s, color 0.15s;
+        }
+
+        .user-panel-btn:hover {
+            background-color: #f3f4f6;
+            color: #DC2626;
+        }
+
+        .user-panel-btn.logout {
+            color: #DC2626;
+            margin-top: 6px;
+        }
+
+        /* Compatibilidad con plantilla de administrador */
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .cart-button {
+            position: relative;
+            background-color: transparent;
+            border: 2px solid #DC2626;
+            color: #DC2626;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 24px;
+            transition: all 0.3s;
+        }
+
+        .cart-button:hover {
+            background-color: #DC2626;
+            color: white;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #DC2626;
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* Navegación secundaria */
+        .nav-menu {
+            padding: 12px 40px;
+            display: flex;
+            gap: 30px;
+            background-color: #ffffff;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #374151;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-item:hover {
+            color: #DC2626;
+        }
+
+        .nav-icon {
+            font-size: 18px;
+        }
+
+        
+        @media (max-width: 768px) {
+            body {
+                padding-top: 180px;
+            }
+
+            .header-top {
+                flex-wrap: wrap;
+                padding: 15px 20px;
+            }
+
+            .search-bar {
+                order: 3;
+                width: 100%;
+                max-width: 100%;
+                margin-top: 10px;
+            }
+
+            .nav-menu {
+                padding: 12px 20px;
+                overflow-x: auto;
+                gap: 20px;
+            }
+        }

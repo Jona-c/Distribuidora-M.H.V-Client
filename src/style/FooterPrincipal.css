@@ -1,0 +1,123 @@
+  .brands-section {
+            padding: 60px 20px;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .brands-title {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #6b7280;
+            margin-bottom: 50px;
+        }
+
+        .brands-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .brands-track {
+            display: flex;
+            gap: 30px;
+            animation: scroll 30s linear infinite;
+            width: fit-content;
+        }
+
+        .brands-track:hover {
+            animation-play-state: paused;
+        }
+
+        .brand-card {
+            flex-shrink: 0;
+            width: 220px;
+            height: 100px;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            padding: 20px;
+        }
+
+        .brand-logo {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .brand-card:hover {
+            border-color: #FF8C42;
+            transform: translateY(-5px);
+        }
+
+        .brand-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: #374151;
+            text-align: center;
+        }
+
+        /* Animación de scroll infinito */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .brands-container::before,
+        .brands-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .brands-container::before {
+            left: 0;
+            background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+        }
+
+        .brands-container::after {
+            right: 0;
+            background: linear-gradient(to left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+        }
+
+        @media (max-width: 768px) {
+            .brands-section {
+                padding: 40px 15px;
+            }
+
+            .brands-title {
+                font-size: 14px;
+                margin-bottom: 35px;
+            }
+
+            .brand-card {
+                width: 180px;
+                height: 85px;
+            }
+
+            .brand-name {
+                font-size: 18px;
+            }
+
+            .brands-track {
+                gap: 20px;
+                animation: scroll 20s linear infinite;
+            }
+        }

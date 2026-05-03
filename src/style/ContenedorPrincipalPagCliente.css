@@ -1,0 +1,267 @@
+/* Contenedor principal */
+        .main-container {
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 30px;
+        }
+
+
+        
+        /* Sidebar - Categorías con scroll independiente */
+        .sidebar {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 160px;
+            max-height: calc(100vh - 180px);
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar personalizado para el sidebar */
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: #DC2626;
+            border-radius: 10px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: #B91C1C;
+        }
+
+        .sidebar-header {
+            position: relative;
+            padding: 20px;
+            border-bottom: 2px solid #f3f4f6;
+        }
+
+        .toggle-button {
+            position: absolute;
+            right: 12px;
+            top: 12px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            transition: transform 0.25s ease;
+        }
+
+        /* Botones de cambio de vista (cuadrilla / línea) */
+        .view-toggle {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            padding: 10px 16px;
+        }
+
+        .view-btn {
+            background: transparent;
+            border: none;
+            padding: 8px;
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s, transform 0.15s ease, color 0.15s ease;
+            color: #6b7280;
+        }
+
+        .view-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .view-btn:hover {
+            background: #f3f4f6;
+            color: #111827;
+            transform: translateY(-2px);
+        }
+
+        .view-btn.active {
+            background: #DC2626;
+            color: #fff;
+            box-shadow: 0 6px 16px rgba(220,38,38,0.12);
+            transform: translateY(-1px);
+        }
+
+        /* When sidebar is collapsed, keep view-toggle visible and stacked */
+        .sidebar.collapsed .view-toggle {
+            position: absolute;
+            top: 60px;
+            right: -56px;
+            flex-direction: column;
+            background: transparent;
+            padding: 4px;
+            gap: 6px;
+            z-index: 40;
+        }
+
+        .sidebar.collapsed .view-btn {
+            width: 44px;
+            height: 44px;
+        }
+
+        .toggle-button .arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--arrow-color, #2b6cb0); /* color por defecto (azul) */
+            transition: transform 0.25s ease, color 0.2s ease;
+        }
+
+        .toggle-button .arrow svg {
+            width: 18px;
+            height: 18px;
+            display: block;
+        }
+
+        .toggle-button:hover .arrow {
+            color: var(--arrow-hover-color, #1e90ff);
+        }
+
+        .toggle-button.collapsed .arrow {
+            transform: rotate(180deg);
+            color: var(--arrow-collapsed-color, #e53e3e); /* color cuando está colapsado (rojo) */
+        }
+
+        /* Collapsed sidebar styles */
+        .sidebar {
+            width: 250px;
+            transition: width 0.25s ease, padding 0.25s ease;
+        }
+
+        /* When collapsed we minimize the aside while keeping the toggle visible */
+        .sidebar.collapsed {
+            width: 72px; /* keep a small column to show icons */
+            padding: 8px;
+            overflow: visible; /* allow toggle to stick out a bit */
+            box-shadow: none;
+        }
+
+        /* Keep header visible but hide the title; keep the toggle accessible */
+        .sidebar.collapsed .sidebar-header {
+            padding: 8px;
+        }
+
+        .sidebar.collapsed .sidebar-title {
+            display: none;
+        }
+
+        /* Show only icons in the collapsed state */
+        .sidebar.collapsed .category-list {
+            display: block;
+        }
+
+        .sidebar.collapsed .category-item {
+            justify-content: center;
+            padding: 10px 0;
+            gap: 0;
+        }
+
+        .sidebar.collapsed .category-icon {
+            font-size: 20px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* hide only the names */
+        .sidebar.collapsed .category-name {
+            display: none;
+        }
+
+        /* Keep the toggle visible when the sidebar is collapsed */
+        .sidebar .toggle-button {
+            z-index: 30;
+            transition: right 0.25s ease;
+        }
+
+        .sidebar.collapsed .toggle-button {
+            right: -18px;
+        }
+
+        /* Ensure products occupy the second column inside the main container and appear above the aside to avoid overlap */
+        .main-container .products-section {
+            grid-column: 2;
+            min-width: 0; /* prevent overflow */
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Make sure sidebar stays behind products when needed */
+        .sidebar {
+            z-index: 1;
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .category-list {
+            list-style: none;
+        }
+
+        .category-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .category-item:hover {
+            background-color: #fff5f0;
+            border-left-color: #DC2626;
+        }
+
+
+        .brand-logo1 {
+            font-size: 20px;
+            width: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .category-name {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+         /* Responsive */
+        @media (max-width: 1024px) {
+            .main-container {
+                grid-template-columns: 220px 1fr;
+                gap: 20px;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }

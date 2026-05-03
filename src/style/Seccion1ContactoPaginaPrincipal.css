@@ -1,0 +1,177 @@
+/* Contenedor principal de la sección de contacto */
+.seccion1-contacto {
+    margin-top: 80px; /* Altura del header fijo */
+    padding: 40px 20px;
+    min-height: calc(100vh - 80px);
+    background-color: #f9fafb;
+}
+
+.contacto-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contacto-titulo {
+    font-size: 2rem;
+    color: #1f2937;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Layout principal */
+.contacto-layout {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* Aside izquierdo */
+.contacto-aside {
+    flex: 0 0 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-self: flex-start;
+}
+
+.aside-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px 24px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.catalogo-btn {
+    background-color: #2563eb;
+    color: white;
+}
+
+.catalogo-btn:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.presupuesto-btn {
+    background-color: #059669;
+    color: white;
+}
+
+.presupuesto-btn:hover {
+    background-color: #047857;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+.btn-icon {
+    font-size: 1.3rem;
+}
+
+/* Contenido derecho */
+.contacto-derecha {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+/* Bloques de información */
+.info-blocks {
+    display: flex;
+    gap: 30px;
+}
+
+.info-block {
+    flex: 1;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.info-titulo {
+    font-size: 1.3rem;
+    color: #1f2937;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    color: #4b5563;
+}
+
+.info-icon {
+    font-size: 1.2rem;
+}
+
+.info-texto {
+    font-size: 1rem;
+}
+
+/* Contenedor del mapa */
+.mapa-container {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.mapa-container iframe {
+    display: block;
+    width: 100%;
+}
+
+/* Contenedor mapa separado */
+.mapa-seccion {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.mapa-seccion .mapa-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contacto-layout {
+        flex-direction: column;
+    }
+
+    .contacto-aside {
+        flex: none;
+        flex-direction: row;
+    }
+
+    .aside-btn {
+        flex: 1;
+    }
+
+    .info-blocks {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    .contacto-aside {
+        flex-direction: column;
+    }
+
+    .aside-btn {
+        width: 100%;
+    }
+}

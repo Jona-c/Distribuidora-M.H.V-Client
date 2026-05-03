@@ -1,0 +1,337 @@
+/* ── Seccion1TotalPedidosAdmin.css ──────────────────────────── */
+
+.total-pedidos-admin {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 180px 1rem 3rem; /* padding-top para evitar superposición con header fijo */
+}
+
+.tpa-titulo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 1.25rem;
+    border-bottom: 3px solid #ee0f0f;
+    padding-bottom: 0.5rem;
+}
+
+/* ── Loading ── */
+.tpa-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 4rem 0;
+    color: #666;
+}
+
+.tpa-spinner {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e0e0e0;
+    border-top-color: #2d6a4f;
+    border-radius: 50%;
+    animation: tpa-spin 0.8s linear infinite;
+}
+
+@keyframes tpa-spin { to { transform: rotate(360deg); } }
+
+/* ── Resumen ── */
+.tpa-resumen {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.tpa-resumen-card {
+    flex: 1;
+    min-width: 140px;
+    background: #fff;
+    border: 1px solid #e0ede6;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.tpa-resumen-num   { font-size: 1.5rem; font-weight: 800; color: #2d6a4f; line-height: 1; }
+.tpa-resumen-num-c { font-size: 1.5rem; font-weight: 800; color: #e00606; line-height: 1; }
+.tpa-resumen-num-f { font-size: 1.5rem; font-weight: 800; color: #0b07d3; line-height: 1; }
+.tpa-resumen-label { font-size: 0.76rem; color: #888; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* ── Tabs ── */
+.tpa-filtros {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.tpa-filtro-btn {
+    padding: 0.5rem 1.25rem;
+    border: 2px solid #e0ede6;
+    border-radius: 8px;
+    background: #fff;
+    color: #555;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.tpa-filtro-btn-c {
+    padding: 0.5rem 1.25rem;
+    border: 2px solid #e0ede6;
+    border-radius: 8px;
+    background: #fff;
+    color: #555;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.tpa-filtro-btn:hover { border-color: #2d6a4f; color: #2d6a4f; }
+.tpa-filtro-btn-c { border-color: #e00606; color: #e00606; }
+
+.tpa-filtro-btn--active {
+    background: #2d6a4f;
+    border-color: #2d6a4f;
+    color: #fff;
+}
+.tpa-filtro-btn-c--active {
+    background: #000000;
+    border-color: #000000;
+    color: #fff;
+}
+
+/* ── Vacío ── */
+.tpa-vacio {
+    background: #f8f8f8;
+    border: 2px dashed #ccc;
+    border-radius: 12px;
+    padding: 3rem;
+    text-align: center;
+    color: #888;
+}
+
+/* ══════════════════════════════════════════
+   ABECEDARIO (compartido via clases globales)
+   Las clases .abecedario .abc-btn etc. vienen
+   de Seccion1UltimosPedidos.css — si usás
+   CSS Modules, copialas acá también.
+══════════════════════════════════════════ */
+
+/* Redefinición local por si los archivos CSS están aislados */
+.abecedario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 1.5rem;
+    background: #f4f8f6;
+    border: 1px solid #e0ede6;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.abc-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+}
+
+.abc-btn--inactiva { background: #e9ecef; color: #aaa; cursor: default; }
+.abc-btn--activa   { background: #2d6a4f; color: #fff; box-shadow: 0 2px 6px rgba(45,106,79,0.35); }
+.abc-btn--activa:hover { background: #245a41; transform: translateY(-1px); }
+.abc-btn--seleccionada { background: #1a3d2e !important; outline: 3px solid #a8d5b5; }
+
+/* ── Panel ── */
+.abc-panel {
+    background: #fff;
+    border: 1px solid #e0ede6;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+    animation: panel-in 0.2s ease;
+}
+
+@keyframes panel-in {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.abc-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1.25rem;
+    background: #2d6a4f;
+    color: #fff;
+}
+
+.abc-panel-titulo {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.abc-panel-letra   { font-size: 1.4rem; font-weight: 900; }
+.abc-panel-subtitulo {
+    font-size: 0.78rem;
+    font-weight: 400;
+    opacity: 0.8;
+    background: rgba(255,255,255,0.15);
+    padding: 2px 8px;
+    border-radius: 999px;
+}
+
+.abc-panel-cerrar {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: #fff;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+}
+
+.abc-panel-cerrar:hover { background: rgba(255,255,255,0.35); }
+
+.abc-lista {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+}
+
+.abc-lista-item {
+    padding: 0.85rem 1.25rem;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.15s;
+}
+
+.abc-lista-item:last-child { border-bottom: none; }
+.abc-lista-item:hover { background: #f4f8f6; }
+.abc-lista-item--seleccionado { background: #e8f4ec !important; }
+
+.abc-item-cliente {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.abc-item-nombre  { font-weight: 700; font-size: 0.95rem; color: #1a1a2e; }
+.abc-item-meta    { display: flex; align-items: center; gap: 1.25rem; font-size: 0.78rem; color: #666; }
+.abc-item-nro     { font-family: monospace; color: #2d6a4f; font-weight: 700; }
+.abc-item-total   { font-weight: 700; color: #2d6a4f; font-size: 0.88rem; }
+
+.abc-item-estado {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.tpa-badge-completado { background: #d4edda; color: #155724; }
+.tpa-badge-cancelado  { background: #f8d7da; color: #721c24; }
+
+/* ── Detalle del pedido (sin botones) ── */
+.tpa-detalle {
+    border-top: 2px solid #e0ede6;
+    padding: 1.25rem;
+    background: #fafffe;
+    animation: panel-in 0.2s ease;
+}
+
+.tpa-detalle-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.tpa-detalle-titulo  { margin: 0 0 4px; font-size: 1rem; font-weight: 700; color: #1a1a2e; }
+.tpa-detalle-nro     { color: #2d6a4f; font-family: monospace; }
+.tpa-detalle-cliente { margin: 0; font-weight: 600; font-size: 0.9rem; color: #333; }
+.tpa-detalle-fecha   { margin: 2px 0 0; font-size: 0.74rem; color: #888; }
+
+.tpa-detalle-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.tpa-detalle-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.tpa-detalle-item:last-child { border-bottom: none; }
+
+.tpa-detalle-item-img {
+    width: 50px;
+    height: 38px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.tpa-detalle-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.tpa-detalle-item-nombre   { font-weight: 600; font-size: 0.88rem; color: #222; }
+.tpa-detalle-item-codigo   { font-size: 0.74rem; color: #888; }
+
+.tpa-detalle-item-nums {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    font-size: 0.82rem;
+    color: #555;
+}
+
+.tpa-detalle-item-subtotal { font-weight: 700; color: #2d6a4f; }
+
+.tpa-detalle-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #e0ede6;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.tpa-detalle-total { font-size: 1.15rem; font-weight: 800; color: #2d6a4f; }

@@ -1,0 +1,19 @@
+/* Contenedor principal de la sección de contacto */
+.seccion1-contacto {
+    padding: 40px 20px;
+    min-height: calc(100vh - 180px);
+    background-color: #f9fafb;
+}
+
+.contacto-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contacto-titulo {
+    font-size: 2rem;
+    color: #1f2937;
+    margin-bottom: 30px;
+    text-align: center;
+}

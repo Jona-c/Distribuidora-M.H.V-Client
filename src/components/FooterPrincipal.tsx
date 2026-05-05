@@ -5,8 +5,8 @@ import crossmaster from '../assets/crossmaster.png'
 import wembley from '../assets/wembley.png'
 import trecem from '../assets/3M.png'
 import bremen from '../assets/bremen.png'
-import bosch from '../assets/bosch.png'
-import dewalt from '../assets/dewalt.png'
+import bosch from '../assets/BOSCH.png'
+import dewalt from '../assets/DEWALT.png'
 
 
 function FooterPrincipal() {
@@ -37,10 +37,10 @@ function FooterPrincipal() {
                 <img src={bremen} alt="bremen" className="brand-logo"/>
                 </div>
                 <div className="brand-card">
-                    <img src={bosch} alt="bosch" className="brand-logo"/>
+                    <img src={bosch} alt="BOSCH" className="brand-logo"/>
                 </div>
                 <div className="brand-card">
-                    <img src={dewalt} alt="dewalt" className="brand-logo"/>
+                    <img src={dewalt} alt="DEWALT" className="brand-logo"/>
                 </div>
                 
                 {/* Segundo set de marcas (duplicado para efecto de carrusel) */}
@@ -57,16 +57,16 @@ function FooterPrincipal() {
                     <img src={wembley} alt="wembley" className="brand-logo"/>
                 </div>
                 <div className="brand-card">
-                    <img src={trecem} alt="3m" className="brand-logo"/>
+                    <img src={trecem} alt="3M" className="brand-logo"/>
                 </div>
                 <div className="brand-card">
                 <img src={bremen} alt="bremen" className="brand-logo"/>
                 </div>
                 <div className="brand-card">
-                    <img src={bosch} alt="bosch" className="brand-logo"/>
+                    <img src={bosch} alt="BOSCH" className="brand-logo"/>
                 </div>
                 <div className="brand-card">
-                    <img src={dewalt} alt="dewalt" className="brand-logo"/>
+                    <img src={dewalt} alt="DEWALT" className="brand-logo"/>
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@ import HeaderPaginaAdmin from '../components/HeaderPaginaAdmin.tsx'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import Swal from 'sweetalert2'
 
-const API = 'http://localhost:5000/api'
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
 
 const InformacionAdmin = () => {
     const { user } = useContext(AuthContext)
@@ -31,7 +31,7 @@ const InformacionAdmin = () => {
 
         setCargando(true); setError('')
         try {
-            const res = await fetch(`${API}/auth/cambiar-password`, {
+            const res = await fetch(`${API_URL}/auth/cambiar-password`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

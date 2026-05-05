@@ -8,7 +8,7 @@ import { AuthContext } from '../context/AuthContext.tsx'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
-const API = 'http://localhost:5000/api'
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
 
 // Paso 1 → pide email y manda código
 // Paso 2 → verifica el código de 6 dígitos
@@ -65,7 +65,7 @@ const FormInicioSesion = () => {
         if (!fpEmail.trim()) return setFpError('Ingresá tu email.')
         setFpCargando(true); setFpError('')
         try {
-            const res = await fetch(`${API}/auth/solicitar-codigo`, {
+            const res = await fetch(`${API_URL}/auth/solicitar-codigo`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: fpEmail }),
@@ -82,7 +82,7 @@ const FormInicioSesion = () => {
         if (fpCodigo.length !== 6) return setFpError('El código debe tener 6 dígitos.')
         setFpCargando(true); setFpError('')
         try {
-            const res = await fetch(`${API}/auth/verificar-codigo`, {
+            const res = await fetch(`${API_URL}/auth/verificar-codigo`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: fpEmail, codigo: fpCodigo }),
@@ -100,7 +100,7 @@ const FormInicioSesion = () => {
         if (fpNueva !== fpConfirmar)         return setFpError('Las contraseñas no coinciden.')
         setFpCargando(true); setFpError('')
         try {
-            const res = await fetch(`${API}/auth/resetear-password`, {
+            const res = await fetch(`${API_URL}/auth/resetear-password`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: fpEmail, codigo: fpCodigo, nuevaPassword: fpNueva }),

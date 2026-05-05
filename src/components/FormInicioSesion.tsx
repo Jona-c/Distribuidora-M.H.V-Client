@@ -1,7 +1,7 @@
 import '../style/FormInicioSesion.css'
 import '../style/HeaderInicioSesion.css'
 import '../style/ModalPassword.css'
-import { useContext, useState } from 'react'
+import { useContext, useState, type ChangeEvent, type FormEvent } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import { inicioSesionFetch } from '../api/inicioSesionFetch.ts'
 import { AuthContext } from '../context/AuthContext.tsx'
@@ -35,12 +35,12 @@ const FormInicioSesion = () => {
     const [fpCargando, setFpCargando]     = useState(false)
     const [fpError, setFpError]           = useState('')
 
-    const handleInputChange = (e: any) => {
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
         setFormData(prev => ({ ...prev, [name]: value }))
     }
 
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         try {
             const response = await inicioSesionFetch(formData)
@@ -50,8 +50,9 @@ const FormInicioSesion = () => {
             if (!success) { localStorage.removeItem('token'); setError('Error al verificar credenciales'); return }
             setError(null)
             navigate(role === 'admin' ? '/PaginaAdmin' : '/PaginaCliente')
-        } catch (err: any) {
-            setError(err.msg)
+        } catch (err: unknown) {
+            const message = err instanceof Error ? err.message : (err as any)?.msg ?? 'Error al iniciar sesión'
+            setError(message)
         }
     }
 

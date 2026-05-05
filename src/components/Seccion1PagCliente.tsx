@@ -1,5 +1,5 @@
 import '../style/Seccion1PagCliente.css'
-import { Dispatch, SetStateAction } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
 
 const Seccion1PagCliente = ({ view, setView }: { view: 'grid' | 'list', setView: Dispatch<SetStateAction<'grid' | 'list'>> }) => {
   return (

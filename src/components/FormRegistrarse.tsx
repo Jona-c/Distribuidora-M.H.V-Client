@@ -1,6 +1,6 @@
 import '../style/FormRegistrarse.css'
 import '../style/HeaderRegistrarse.css'
-import { useState } from 'react'
+import { useState, type ChangeEvent, type FormEvent } from 'react'
 import { registerFetch } from '../api/registerFetch.ts'
 import {FaEye , FaEyeSlash} from 'react-icons/fa'
 import Swal from 'sweetalert2'
@@ -32,10 +32,10 @@ const FormRegistrarse = () => {
 
     // Validacion de formulario
 
-    const [error, setError] = useState(null);
-    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+    const [success, setSuccess] = useState<string | false>(false);
 
-    const handleInputChange = (e) => {
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target
         setFormData({
             ...formData,
@@ -45,13 +45,14 @@ const FormRegistrarse = () => {
 
     // Obtener los datos del formulario de registro
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         try {
             const resp = await registerFetch(formData);
-            setSuccess(resp.msg);
-            setError(false);
+            const successMessage = typeof resp.msg === 'string' ? resp.msg : 'Registro exitoso';
+            setSuccess(successMessage);
+            setError(null);
 
              // Mostrar SweetAlert de éxito
             Swal.fire({
@@ -66,8 +67,9 @@ const FormRegistrarse = () => {
                 }
             });
 
-        }catch (error) {
-            setError(error.msg);
+        } catch (error: unknown) {
+            const errorMessage = error instanceof Error ? error.message : (error as any)?.msg ?? 'Error de registro';
+            setError(errorMessage);
             setSuccess(false);
         }
         

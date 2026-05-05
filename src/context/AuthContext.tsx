@@ -1,12 +1,27 @@
-import { useState, createContext, useEffect } from "react";
+import { useState, createContext, useEffect, type ReactNode, type Dispatch, type SetStateAction } from "react";
 import { getMeFetch } from "../api/getMeFetch";
-export const AuthContext = createContext();
+
+type User = Record<string, any> | null;
+
+type AuthContextType = {
+    user: User;
+    setUser: Dispatch<SetStateAction<User>>;
+    login: (token?: string) => Promise<boolean>;
+    logout: () => void;
+};
+
+export const AuthContext = createContext<AuthContextType>({
+    user: null,
+    setUser: () => {},
+    login: async () => false,
+    logout: () => {},
+});
 import '../style/Loading.css'
 import { useNavigate } from 'react-router-dom'
 
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children }: { children: ReactNode }) => {
     //usuario estatico(de momento no existe)
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState<User>(null);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     
@@ -29,7 +44,7 @@ export const AuthProvider = ({ children }) => {
 
 
     //login
-    const login = async(token) => {
+    const login = async (token?: string): Promise<boolean> => {
         if (!token) return false;
         
         try {

@@ -9,6 +9,7 @@
         box-sizing: border-box;
         background-color: transparent;
         margin-bottom: -20px;
+    }
 
     .filter-bar .filter-title {
         margin: 0;

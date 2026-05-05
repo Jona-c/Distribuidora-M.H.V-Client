@@ -1,6 +1,6 @@
 import '../style/Seccion1PagAdmin.css'
 import '../style/ModalProducto.css'
-import { Dispatch, SetStateAction, useState, useRef } from 'react'
+import { useState, useRef, type Dispatch, type SetStateAction } from 'react'
 import { useProductos } from '../context/ProductosContext'
 import Swal from 'sweetalert2'
 

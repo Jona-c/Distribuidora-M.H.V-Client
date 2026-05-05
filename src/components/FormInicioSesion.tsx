@@ -8,7 +8,7 @@ import { AuthContext } from '../context/AuthContext.tsx'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
 // Paso 1 → pide email y manda código
 // Paso 2 → verifica el código de 6 dígitos

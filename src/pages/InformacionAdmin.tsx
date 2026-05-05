@@ -6,7 +6,7 @@ import HeaderPaginaAdmin from '../components/HeaderPaginaAdmin.tsx'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import Swal from 'sweetalert2'
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
 const InformacionAdmin = () => {
     const { user } = useContext(AuthContext)

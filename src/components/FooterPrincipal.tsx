@@ -3,7 +3,7 @@ import lusqtoff from '../assets/lusqtoff.png'
 import blackdecker from '../assets/black&decker.png'
 import crossmaster from '../assets/crossmaster.png'
 import wembley from '../assets/wembley.png'
-import trecem from '../assets/3m.png'
+import trecem from '../assets/3M.png'
 import bremen from '../assets/bremen.png'
 import bosch from '../assets/bosch.png'
 import dewalt from '../assets/dewalt.png'
@@ -31,7 +31,7 @@ function FooterPrincipal() {
                     <img src={wembley} alt="wembley" className="brand-logo"/>
                 </div>
                 <div className="brand-card">
-                    <img src={trecem} alt="3m" className="brand-logo"/>
+                    <img src={trecem} alt="3M" className="brand-logo"/>
                 </div>
                 <div className="brand-card">
                 <img src={bremen} alt="bremen" className="brand-logo"/>
